@@ -5,7 +5,9 @@
  * Date: 21/11/2016
  * Time: 09:30
  */
-include "VIEW/ViewShowAll.php";
+/* include "VIEW/ViewShowAll.php"; */
+require_once 'BO/HomologacaoCrud.php';
+
 ?>
 
 <html>
@@ -78,11 +80,9 @@ include "VIEW/ViewShowAll.php";
             ';
 
 
-            $instancia = new Homolocacao();
+            $homologacaoCrud = new HomologacaoCrud();
 
-            print_r($instancia->arrayValoresPosto);
-
-            foreach ($instancia->arrayValoresPosto as $value) {
+            foreach ($homologacaoCrud->findAll() as $value) {
                 $nomeAnalistaLocal = str_replace('{{NOME_ANALISTA_LOCAL}}', $value->AnalistaLocal, $LINHA_DINAMICA_MODELO);
                 $nomeAnalistaRemoto = str_replace('{{NOME_ANALISTA_REMOTO}}', $value->AnalistaExterno, $nomeAnalistaLocal);
                 $ibm = str_replace('{{IBM}}', $value->ibm, $nomeAnalistaRemoto);
