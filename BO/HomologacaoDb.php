@@ -1,7 +1,7 @@
 <?php
 
 
-require_once '../phpUtils/conn.php';
+require_once 'phpUtils/DbConnection.php';
 require_once '../BO/HomologacaoDto.php';
 
 if (!defined('QUERY_SELECT_ALL')) define('QUERY_SELECT_ALL', 'SELECT * FROM homologacao'); /* usar query por arquivo*/
